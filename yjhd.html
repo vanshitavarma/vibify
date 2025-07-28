@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>yjhd</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      margin:0;
+      padding:0;
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-decoration:none;
+      /* padding: 0px; */
+     
+    }
+
+    body a{
+      text-decoration: none;
+      color: white;
+    }
+
+
+    .song {
+      background-color: #1f1f1f;
+      padding: 20px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    .song-info h3 {
+      margin: 0;
+    }
+
+    .play-btn {
+      background-color: #1db954;
+      color: black;
+      border-radius: 50%;
+      height: 45px;
+      width: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    audio {
+      display: none;
+    }
+
+  .artist-playlist{
+    height: 300px;
+    width:100vw;
+    background:linear-gradient(to bottom,#CCC4B7,#F2C895);
+    display:flex;
+    align-items:center;
+  }
+
+  .artist-img{
+    height: 250px;
+    width: 250px;
+    background-image:url(yjhd.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 30px;
+    margin-top:100px;
+   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  
+  }
+
+  .ROW2{
+    height: 100px;
+    background:linear-gradient(to bottom, #F2C895,#C17E3F);
+    width: 100vw;
+  }
+
+  .playlist{
+    font-family: 'Circular Std', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+.artist-name {
+  font-size: 5rem;
+  font-weight: 900;
+  color: white;
+  line-height: 1.2;
+  font-family: 'Circular Std', system-ui, sans-serif;
+}
+
+
+
+.artist-playlist .content h6 {
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 500;
+   line-height: 1.2;
+}
+.verified{
+  display:flex;
+  align-items:center;
+  font-size:0.9rem;
+  font-weight:500;
+  margin-bottom:8px;
+  margin-top:75px;
+  gap:7px;
+}
+
+.verified-img img {
+  height: 30px;
+  width: 30px;
+  object-fit:contain;
+  margin-top:25px;
+  
+}
+
+.verified span{
+  margin-top:25px;
+}
+
+
+.artist-info .txt{
+  margin-top: 15px;
+  display: inline-block;
+}
+
+@media(max-width:800px){
+  a{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .artist-name{
+    font-size:2.5rem;
+  }
+  .artist-img{
+    height: 200px;
+    width: 270px;
+    
+  }
+  .artist-playlist{
+    gap:45px;
+  } 
+}
+
+
+  </style>
+</head>
+<body>
+
+  <div class="playlist">
+    <div class="artist-playlist">
+    <div class="artist-img"></div>
+    <div class="content">
+      <div class="verified"> 
+        <div class="verified-img"><img src="verified.png"></div>
+      <span>Verified artist</span> 
+      </div>
+      <div class="artist-info">
+      <span class="artist-name">Yeh Jawaani Hai Diwani</span>
+      <br> 
+      </div>
+    </div>
+    
+    </div>
+    <div class="ROW2"></div>
+    <!-- <img src="arijit.png"> -->
+  </div>
+
+<a href="kabira.html">
+  <div class="song" onclick="togglePlay('audio1', this)">
+  <div class="song-info"><h3>1.Kabira</h3></div>
+  <div class="play-btn"><i class="fas fa-play"></i></div>
+  <audio id="audio1" src="songs/Kabira Full Song Yeh Jawaani Hai Deewani  Pritam  Ranbir Kapoor, Deepika Padukone - T-Series.mp3"></audio>
+  </div>
+</a>
+
+<a href="illahi.html">
+  <div class="song" onclick="togglePlay('audio2', this)">
+    <div class="song-info"><h3>2.Ilahi</h3></div>
+    <div class="play-btn"><i class="fas fa-play"></i></div>
+    <audio id="audio2" src="songs/Ilahi Full Video Song  Yeh Jawaani Hai Deewani  Ranbir Kapoor, Deepika Padukone  Pritam - T-Series.mp3"></audio>
+  </div>
+</a>
+
+<a href="ghagra.html">
+  <div class="song" onclick="togglePlay('audio3', this)">
+    <div class="song-info"><h3>3.Ghagra</h3></div>
+    <div class="play-btn"><i class="fas fa-play"></i></div>
+    <audio id="audio3" src="songs/Ghagra Full Video Song  Yeh Jawaani Hai Deewani  Pritam  Madhuri Dixit, Ranbir Kapoor - T-Series.mp3"></audio>
+  </div>
+</a>
+
+<a href="dilliwaligf.html">
+ <div class="song" onclick="togglePlay('audio4', this)">
+    <div class="song-info"><h3>4.Dilliwali Girlfriend</h3></div>
+    <div class="play-btn"><i class="fas fa-play"></i></div>
+    <audio id="audio4" src="songs/Dilliwali Girlfriend Full Song Yeh Jawaani Hai Deewani  Ranbir Kapoor, Deepika Padukone  Pritam - T-Series.mp3"></audio>
+  </div>
+</a>
+
+<a href="badtameezdil.html">
+ <div class="song" onclick="togglePlay('audio5', this)">
+    <div class="song-info"><h3>5.Badtameez Dil</h3></div>
+    <div class="play-btn"><i class="fas fa-play"></i></div>
+    <audio id="audio5" src="songs/BadtameezDil.mp3"></audio>
+  </div>
+</a>
+
+<a href="balampichkari.html">
+<div class="song" onclick="togglePlay('audio6', this)">
+    <div class="song-info"><h3>6.Balam Pichkari</h3></div>
+    <div class="play-btn"><i class="fas fa-play"></i></div>
+    <audio id="audio6" src="songs/Balam Pichkari Full Song Video Yeh Jawaani Hai Deewani  PRITAM  Ranbir Kapoor, Deepika Padukone - T-Series.mp3"></audio>
+  </div>
+</a>
+
+
+  <script>
+    const allAudios = document.querySelectorAll("audio");
+    const allButtons = document.querySelectorAll(".play-btn i");
+
+    function togglePlay(id, card) {
+      const audio = document.getElementById(id);
+      const icon = card.querySelector(".play-btn i");
+
+      // Pause all other audios
+      allAudios.forEach(a => {
+        if (a.id !== id) {
+          a.pause();
+          a.currentTime = 0;
+        }
+      });
+
+      // Reset all icons
+      allButtons.forEach(btn => {
+        btn.classList.remove("fa-pause");
+        btn.classList.add("fa-play");
+      });
+
+      // Toggle play/pause
+      if (audio.paused) {
+        audio.play();
+        icon.classList.remove("fa-play");
+        icon.classList.add("fa-pause");
+      } else {
+        audio.pause();
+        icon.classList.remove("fa-pause");
+        icon.classList.add("fa-play");
+      }
+    }
+  </script>
+
+</body>
+</html>

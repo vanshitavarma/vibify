@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="hamburger">
+          <i class="fa fa-bars"></i>
+        </div>  
+        <div class="spotify-logo"><a href="#"><img  class="lg" src='vibeify.png'></a></div>
+        <div class="home-btn"><a href="#"><i class="fa-solid fa-house" style="color: #ffffff;"></i></a></div>
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="What do you want to play?" class="search-input" />
+  
+            <i class="fas fa-search search-icon"></i>
+        </div>
+           
+  <div class="opt-wrapper">
+  <div class="opt">
+    <div class="opt1"><a href="premium.html">Premium</a></div>
+    <div class="opt1"><a href="support.html">Support</a></div>
+    <div class="opt1"><a href="#">Download</a></div>
+    <div class="line">|</div>
+    <div class="opt1"><i class="fa-solid fa-download"></i> <a href="#">Install</a></div>
+    <div class="sign opt1"><a href="signup.html">Sign-Up</a></div>
+
+    <!-- Inside your navbar -->
+<button class="log-in">
+  <a href="login.html" style="text-decoration: none; color:black;"><h3>Log in</h3></a>
+</button>
+
+  </div>
+</div>
+</div>
+
+  <div class="container">
+  <div class="left-section"  id="sidebar">
+    <div class="lib"><h4>Your Library</h4>
+      <div class="plus"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></div>
+    </div>
+    <div class="box">
+      <div id="box1">
+        <h4>Create your first playlist</h4>
+        <div class="box1-cont">It's easy,we'll help you</div>
+        <button class="btn1"><h3>Create Playlist</h3></button>
+      </div>
+      <div id="box2">
+        <h4>Let's find some podcasts to follow</h4>
+        <div class="box2-cont">We'll keep you updated on new episodes</div>
+        <button class="btn2"><h3>Browse podcasts</h3></button>
+      </div>
+    </div>
+    <div class="left-bot"></div>
+    <ul>
+      <li>Legal</li>
+      <li>Safety&PrivacyCenter</li>
+      <li>Privacy Policy</li>
+      <li>Cookies</li>
+      <li>AboutAds</li>
+      <li>Accessibility</li>
+      <li>Cookies</li>
+    </ul>
+    <button class="lang"><i class="fa-solid fa-globe" style="color: #ffffff;"></i>English</button>
+  </div>
+
+  <div class="right-section">
+    <div class="unscrollable-content">
+        <div class="trending"><h2>Trending Songs</h2>
+        <a class="see-more">Show All</a>  
+        </div>
+        
+        <!-- Search results will appear here -->
+<div id="search-results" class="row1" style="display: none;"></div>
+
+          <div class="row1">
+            <div class="song-card">
+              <img src="saphire.jpg" alt="song"/>
+              <h4>Sapphire</h4>
+              <p>Ed Sheeran</p>
+          <a href="sapphire.html">
+            <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            <!-- <audio src="songs/Sapphire.mp3"></audio> -->
+            </div>
+          </a>
+            <div class="song-card">
+            <img src="jhol.png" alt="song"/>
+            <h4>Jhol</h4>
+            <p>Annural Khalid</p>
+          <a href="jhol.html">
+            <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            <!-- <audio src="songs/Jhol.mp3"></audio> -->
+            </div>
+          </a>
+
+            <div class="song-card">
+            <img src="bornTOshine.png" alt="song"/>
+            <h4>Born to Shine</h4>
+            <p> Diljit Dosanjh</p>
+          <a href="born to shine.html">
+            <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            <audio src="songs/Goat.mp3"></audio>
+            </div>
+          </a>
+
+            <div class="song-card">
+            <img src="yjhd.png" alt="song"/>
+            <h4>Badtameez Dil</h4>
+            <p>	Benny Dayal, Shefali Alvares</p>
+          <a href="badtameez.html">
+            <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            <audio src="songs/BadtameezDil.mp3"></audio>
+            </div>
+          </a>
+
+            <div class="song-card">
+            <img src="findingher.png" alt="song"/>
+            <h4>Finding Her</h4>
+            <p>Kushagra,Bharath</p>
+          <a href="findingher.html">
+            <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            <!-- <audio src="songs/FindingHer.mp3"></audio> -->
+            </div>
+          </a>
+ 
+
+            <div class="song-card">
+            <img src="obssesd.png" alt="song"/>
+            <h4>Obsessed</h4>
+            <p>Riar Saab,Abhijay Sharma</p>
+          <a href="obsessed.html">
+            <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            <audio src="songs/Obsessed.mp3"></audio>
+            </div>
+          </a>
+
+
+            <div class="song-card">
+            <img src="bangbang.png" alt="song"/>
+            <h4>Bang-Bang</h4>
+            <p> Jessie J,Ariana Grande</p>
+          <a href="bangbang.html">
+            <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            <audio src="songs/BangBang.mp3"></audio>
+            </div>
+          </a>
+
+
+            <div class="song-card">
+            <img src="pinklips.png" alt="song"/>
+            <h4>Pink Lips</h4>
+            <p>Meet Bros Anjjan featuring Khushboo Grewal</p>
+          <a href="pinklips.html">
+            <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            <!-- <audio src="songs/PinkLips.mp3"></audio> -->
+            </div>
+          </a>
+
+            <div class="song-card">
+            <img src="plb.png" alt="song"/>
+            <h4>Pretty Little Baby</h4>
+            <p>Connie Francis</p>
+          <a href="prettylittlebaby.html">
+            <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            <!-- <audio src="songs/PrettyLittleBaby.mp3"></audio> -->
+            </div>
+          </a>
+
+            <div class="song-card">
+              <img src="apt.png" alt="song"/>
+              <h4>APT</h4>
+              <p>ROSE Bruno Mars</p>
+            <a href="APT.html">
+              <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            <!-- <audio src="songs/APT.mp3"></audio> -->
+            </div>
+            </a>
+          </div>
+
+         
+
+        
+             
+            
+         
+         
+       
+        <div class="popular">
+                  <h2>Popular artists</h2>
+                  <a class="see-more">Show All</a> 
+        </div>    
+          <div class="row2">
+            <a href="arijit.html">
+              <div class="singer-card">
+                <img src="arijit.png" alt="Artist"/>
+                <h4>Arijit Singh</h4>
+                <p>Artist</p>
+                <div class="play-btn">
+              <i class="fa-sharp fa-solid fa-play"></i>
+              </div>
+              </div>
+            </a>
+
+          <a href="weeknd.html">
+            <div class="singer-card">
+            <img src="weeknd.png" alt="Artist"/>
+            <h4>The Weeknd</h4>
+            <p>Artist</p>
+            <div class="play-btn">
+              <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+           </div>
+          </a>
+
+          <a href="yoyo.html">
+            <div class="singer-card">
+              <img src="yoyo.png" alt="Artist"/>
+              <h4>Yo Yo Honey Singh</h4>
+              <p>Artist</p>
+              <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            </div>
+            </a>
+
+
+          <a href="shreyaG.html">
+            <div class="singer-card">
+              <img src="shreyaG.png" alt="Artist"/>
+              <h4>Shreya Ghosal</h4>
+              <p>Artist</p>
+              <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            </div>
+          </a>
+
+
+          <a href="kishore.html">
+            <div class="singer-card">
+              <img src="kishoreK.png" alt="Artist"/>
+              <h4>Kishor Kumar</h4>
+              <p>Artist</p>
+              <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            </div>
+          </a>
+
+           <a href="anuv.html">
+            <div class="singer-card">
+              <img src="anuvJ.png" alt="Artist"/>
+              <h4>Anuv Jain</h4>
+              <p>Artist</p>
+              <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            </div>
+           </a>
+
+           <a href="mika.html">
+              <div class="singer-card">
+              <img src="mika.png" alt="Artist"/>
+              <h4>Mika Singh</h4>
+              <p>Artist</p>
+            <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            </div>
+            </a>
+
+            <a href="taylorswift.html">
+              <div class="singer-card">
+              <img src="taylorswift.png" alt="Artist"/>
+              <h4>Taylor Swift</h4>
+              <p>Artist</p>
+               <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            </div>
+            </a>
+            </div>
+          </div>
+
+            <div class="popularalbums">
+                  <h2>Popular albums</h2>
+                  <a class="see-more">Show All</a> 
+            </div>  
+          
+          <div class="row3">
+          <a href="aashiqui.html">
+            <div class="song-card ">
+            <img src="ashiqui.png" alt="song"/>
+            <h4>Aashiqui 2</h4>
+            <p>Mithoon,Ankit Tiwari</p>
+            <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            </div>
+          </a>
+          
+
+          <a href="bajrangi.html">
+            <div class="song-card">
+              <img src="bajrangi.png" alt="song"/>
+              <h4>Bajrangi Bhaijaan</h4>
+              <p>Pritam</p>
+              <div class="play-btn">
+                <i class="fa-sharp fa-solid fa-play"></i>
+              </div>
+            </div>
+          </a>
+          
+
+
+          <a href="localtain.html">
+            <div class="song-card">
+            <img src="local.png" alt="song"/>
+            <h4>The Local Train</h4>
+            <p>Ramit Mehra</p>
+            <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            </div>
+          </a>
+          
+          <a href="yjhd.html">
+            <div class="song-card">
+            <img src="yjhd.png" alt="song"/>
+            <h4>Yeh Jawaani Hai Deewani</h4>
+            <p>Pritam</p>
+            <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            </div>
+          </a>
+
+
+          <a href="guts.html"> 
+            <div class="song-card">
+            <img src="oliviaR.png" alt="song"/>
+            <h4>Guts</h4>
+            <p>Olivia Rodrigo</p>
+            <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            </div>
+          </a>
+
+
+          <a href="ranjhan.html">
+            <div class="song-card">
+            <img src="raanjhan.png" alt="song"/>
+            <h4>Raanjhan(From"Do Patti")</h4>
+            <p>Sachet-Parampara</p>
+            <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            </div>
+          </a>
+
+           <a href="kabirsingh.html">
+            <div class="song-card">
+            <img src="kabirsingh.png" alt="song"/>
+            <h4>Kabir Singh</h4>
+            <p>Mithoon,Amaal Malik</p>
+            <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            </div>
+          </a>
+
+          <a href="sanam.html">
+            <div class="song-card">
+            <img src="stk.png" alt="song"/>
+            <h4>Sanam Teri Kasam</h4>
+            <p>Pritam</p>
+            <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            </div>
+          </a>
+
+
+          <a href="masoom.html">  
+            <div class="song-card">
+            <img src="masoom.png" alt="song"/>
+            <h4>This is Masoom Sharma</h4>
+            <p>By Spotify</p>
+            <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            </div>
+          </a>
+
+          <a href="punjab.html">  
+            <div class="song-card">
+            <img src="punjab.png" alt="song"/>
+            <h4>Punjab Radio</h4>
+            <p>A.P Dhillon and many more..</p>
+            <div class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+            </div>
+            </div> 
+          </div> 
+          </a>
+          
+  <div class="row4">
+  <ul>
+    <li><h5>Company</h5></li>
+    <li>About</li>
+    <li>Jobs</li> 
+    <li>For the Record</li>  
+  </ul>
+
+  <ul>
+    <li><h5>Communities</h5></li>
+    <li>For Artists</li>
+    <li>Developers</li>
+    <li>Advertising</li>
+    <li>Investors</li>
+    <li>Vendors</li>
+  </ul>
+
+  <ul>
+    <li><h5>Useful links</h5></li>
+    <li>Support</li>
+    <li>Free Mobile App</li>
+  </ul>
+
+  <ul>
+    <li><h5>Spotify Plans</h5></li>
+    <li>Premium Individual</li>
+    <li>Premium Duo</li>
+    <li>Premium Family</li>
+    <li>Premium Student</li>
+    <li>Spotify Free</li>
+  </ul>
+
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+  </div>
+</div>
+ </div>
+    </div> 
+  </div>
+</div>
+<script src="script.js" defer></script>
+</body>
+</html>

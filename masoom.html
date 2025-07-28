@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Masoom Sharma</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+   body {
+      margin:0;
+      padding:0;
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .song {
+      background-color: #1f1f1f;
+      padding: 20px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    .song-info h3 {
+      margin: 0;
+    }
+
+    .play-btn {
+      background-color: #1db954;
+      color: black;
+      border-radius: 50%;
+      height: 45px;
+      width: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    audio {
+      display: none;
+    }
+
+  .artist-playlist{
+    height: 300px;
+    width:100vw;
+    background:linear-gradient(to bottom,#E6B967,#5D4936);
+    display:flex;
+    align-items:center;
+  }
+
+  body a{
+    text-decoration:none;
+    color:white;
+  }
+
+  .artist-img{
+    height: 250px;
+    width: 250px;
+    background-image:url(masoom.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 30px;
+    margin-top:100px;
+   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  
+  }
+
+  .ROW2{
+    height: 100px;
+    background:linear-gradient(to bottom,  #5D4936,#644C46);
+    width: 100vw;
+  }
+
+  .playlist{
+    font-family: 'Circular Std', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+.artist-name {
+  font-size: 5rem;
+  font-weight: 900;
+  color: white;
+  line-height: 1.2;
+  font-family: 'Circular Std', system-ui, sans-serif;
+}
+
+
+
+.artist-playlist .content h6 {
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 500;
+   line-height: 1.2;
+}
+.verified{
+  display:flex;
+  align-items:center;
+  font-size:0.9rem;
+  font-weight:500;
+  margin-bottom:8px;
+  margin-top:75px;
+  gap:7px;
+}
+
+.verified-img img {
+  height: 30px;
+  width: 30px;
+  margin-top:25px;
+  object-fit:contain;
+  
+}
+
+  .verified span{
+  margin-top:25px;
+}
+
+
+.artist-info .txt{
+  margin-top: 15px;
+  display: inline-block;
+}
+
+@media(max-width:800px){
+  a{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .artist-name{
+    font-size:2.5rem;
+  }
+  .artist-img{
+    height: 200px;
+    width: 320px;
+    
+  }
+
+  .artist-playlist{
+    gap: 45px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="playlist">
+    <div class="artist-playlist">
+    <div class="artist-img"></div>
+    <div class="content">
+      <div class="verified"> 
+        <div class="verified-img"><img src="verified.png"></div>
+      <span>Verified artist</span> 
+      </div>
+      <div class="artist-info">
+      <span class="artist-name">Masoom Sharma</span>
+      <br> 
+      </div>
+    </div>
+    
+    </div>
+    <div class="ROW2"></div>
+    <!-- <img src="arijit.png"> -->
+  </div>
+
+  <a href="2khatole.html">
+  <div class="song" onclick="togglePlay('audio1', this)">
+  <div class="song-info"><h3>1.Do Khatole</h3></div>
+  <div class="play-btn"><i class="fas fa-play"></i></div>
+  <audio id="audio1" src="songs/2 Khatole  MASOOM SHARMA  Manjeet Mor, Chahal Saab, Vikash Rajana  New Haryanvi Song 2024 - Tuffan Music.mp3"></audio>
+  </div>
+  </a>
+
+  <a href="chambal.html">
+  <div class="song" onclick="togglePlay('audio2', this)">
+    <div class="song-info"><h3>2.Chambal ke Daaku</h3></div>
+    <div class="play-btn"><i class="fas fa-play"></i></div>
+    <audio id="audio2" src="songs/Chambal K Dakku  Masoom Sharma  Swara Verma  Rahul Muana  Ruba Khan  New Haryanvi Song 2024 - Bajewala Records Haryanvi.mp3"></audio>
+  </div>
+  </a>
+
+  <a href="lofar.html">
+  <div class="song" onclick="togglePlay('audio3', this)">
+    <div class="song-info"><h3>3.Lofar</h3></div>
+    <div class="play-btn"><i class="fas fa-play"></i></div>
+    <audio id="audio3" src="Lofar Masoom Sharma (Official Video) Swara verma  Pinna Music  New Haryanvi Song Haryanvi 2025 - Shikaari Music.mp3"></audio>
+  </div>
+  </a>
+
+ 
+
+
+  <script>
+    const allAudios = document.querySelectorAll("audio");
+    const allButtons = document.querySelectorAll(".play-btn i");
+
+    function togglePlay(id, card) {
+      const audio = document.getElementById(id);
+      const icon = card.querySelector(".play-btn i");
+
+      // Pause all other audios
+      allAudios.forEach(a => {
+        if (a.id !== id) {
+          a.pause();
+          a.currentTime = 0;
+        }
+      });
+
+      // Reset all icons
+      allButtons.forEach(btn => {
+        btn.classList.remove("fa-pause");
+        btn.classList.add("fa-play");
+      });
+
+      // Toggle play/pause
+      if (audio.paused) {
+        audio.play();
+        icon.classList.remove("fa-play");
+        icon.classList.add("fa-pause");
+      } else {
+        audio.pause();
+        icon.classList.remove("fa-pause");
+        icon.classList.add("fa-play");
+      }
+    }
+  </script>
+
+</body>
+</html>

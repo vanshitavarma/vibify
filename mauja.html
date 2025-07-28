@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <!-- <h2>Sapphire</h2>
+        <img src="saphire.jpg"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<div class="player">
+  <img src="mika2.png" alt="Album Art" class="album-art">
+  <h3 class="song-title">Mauja Hi Mauja</h3>
+  <p class="artist">Mika Singh</p>
+
+  <input type="range" id="progress" value="0" class="progress-bar">
+  <div class="time">
+    <span id="current">0:00</span>
+    <span id="duration">-0:00</span>
+  </div>
+
+  <div class="controls">
+    <button id="prev"><i class="fas fa-backward"></i></button>
+    
+    <!-- ✅ Play/Pause toggle button -->
+    <button id="play"><i class="fas fa-play"></i></button>
+    
+    <button id="next"><i class="fas fa-forward"></i></button>
+  </div>
+
+  <audio id="audio" src="songs/Full Video_ Mauja Hi Mauja  Jab We Met  Shahid kapoor, Kareena Kapoor  Mika Singh   Pritam.mp3"></audio>
+  </div>
+
+    </div>
+          
+          
+    </div>
+
+<style>
+    
+    body {
+  background-color: #111;
+  color: #fff;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+
+.player {
+  width: 300px;
+  text-align: center;
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.album-art {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.song-title {
+  font-size: 20px;
+  margin: 10px 0 5px;
+}
+
+.artist {
+  color: #aaa;
+  margin-bottom: 15px;
+}
+
+.progress-bar {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 15px;
+  color: #aaa;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+.controls button:focus {
+  outline: none;
+}
+
+  
+</style>
+
+<script>
+const audio = document.getElementById('audio');
+const playBtn = document.getElementById('play');
+const progress = document.getElementById('progress');
+const current = document.getElementById('current');
+const duration = document.getElementById('duration');
+
+// ✅ Get the <i> tag inside the play button to toggle its icon
+const icon = playBtn.querySelector('i');
+
+audio.onloadedmetadata = () => {
+  duration.textContent = '-' + formatTime(audio.duration);
+};
+
+audio.ontimeupdate = () => {
+  progress.value = (audio.currentTime / audio.duration) * 100;
+  current.textContent = formatTime(audio.currentTime);
+};
+
+progress.oninput = () => {
+  audio.currentTime = (progress.value / 100) * audio.duration;
+};
+
+// ✅ Play/Pause toggle with icon switch
+playBtn.onclick = () => {
+  if (audio.paused) {
+    audio.play();
+    icon.classList.replace('fa-play', 'fa-pause'); // switch to pause icon
+  } else {
+    audio.pause();
+    icon.classList.replace('fa-pause', 'fa-play'); // switch back to play icon
+  }
+};
+
+function formatTime(sec) {
+  const minutes = Math.floor(sec / 60);
+  const seconds = Math.floor(sec % 60).toString().padStart(2, '0');
+  return `${minutes}:${seconds}`;
+}
+
+
+</script> 
+
+
+</body>
+</html>

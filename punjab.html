@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Punjab Radio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+   body {
+      margin:0;
+      padding:0;
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    
+    body a{
+      text-decoration: none;
+      color:white;
+    }
+
+    .song {
+      background-color: #1f1f1f;
+      padding: 20px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    .song-info h3 {
+      margin: 0;
+    }
+
+    .play-btn {
+      background-color: #1db954;
+      color: black;
+      border-radius: 50%;
+      height: 45px;
+      width: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    audio {
+      display: none;
+    }
+
+  .artist-playlist{
+    height: 300px;
+    width:100vw;
+    background:linear-gradient(to bottom,#FD7263,#E97870);
+    display:flex;
+    align-items:center;
+  }
+
+  .artist-img{
+    height: 250px;
+    width: 250px;
+    background-image:url(punjab.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 30px;
+    margin-top:100px;
+   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  
+  }
+
+  .ROW2{
+    height: 100px;
+    background:linear-gradient(to bottom,  #E97870,#A29687);
+    width: 100vw;
+  }
+
+  .playlist{
+    font-family: 'Circular Std', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+.artist-name {
+  font-size: 5rem;
+  font-weight: 900;
+  color: white;
+  line-height: 1.2;
+  font-family: 'Circular Std', system-ui, sans-serif;
+}
+
+
+
+.artist-playlist .content h6 {
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 500;
+   line-height: 1.2;
+}
+.verified{
+  display:flex;
+  align-items:center;
+  font-size:0.9rem;
+  font-weight:500;
+  margin-bottom:8px;
+  margin-top:75px;
+  gap:7px;
+}
+  .verified span{
+  margin-top:25px;
+}
+
+.verified-img img {
+  height: 30px;
+  width: 30px;
+  margin-top:25px;
+  object-fit:contain;
+  
+}
+
+
+.artist-info .txt{
+  margin-top: 15px;
+  display: inline-block;
+}
+
+@media(max-width:800px){
+  a{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .artist-name{
+    font-size:2.5rem;
+  }
+  .artist-img{
+    height: 200px;
+    width: 270px;
+    
+  }
+
+  .artist-playlist{
+    gap: 45px;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <div class="playlist">
+    <div class="artist-playlist">
+    <div class="artist-img"></div>
+    <div class="content">
+      <div class="verified"> 
+        <div class="verified-img"><img src="verified.png"></div>
+      <span>Verified artist</span> 
+      </div>
+      <div class="artist-info">
+      <span class="artist-name">A.P Dhillon</span>
+      <br> 
+      </div>
+    </div>
+    
+    </div>
+    <div class="ROW2"></div>
+    <!-- <img src="arijit.png"> -->
+  </div>
+<a href="52bars.html">
+  <div class="song" onclick="togglePlay('audio1', this)">
+  <div class="song-info"><h3>1.52 Bars </h3></div>
+  <div class="play-btn"><i class="fas fa-play"></i></div>
+  <audio id="audio1" src="songs/52 Bars  (Official Video) Karan Aujla  Ikky  Four You EP  First Song  Latest Punjabi Songs 2023 - Karan Aujla.mp3"></audio>
+  </div>
+</a>
+
+<a href="admirin.html">
+  <div class="song" onclick="togglePlay('audio2', this)">
+    <div class="song-info"><h3>2.Admirin' You</h3></div>
+    <div class="play-btn"><i class="fas fa-play"></i></div>
+    <audio id="audio2" src="songs/Admirin' You (Official Video) Karan Aujla  Ikky  Making Memories  Latest Punjabi Songs 2023 - Karan Aujla.mp3"></audio>
+  </div>
+</a>
+
+<a href="oldmoney.html">
+  <div class="song" onclick="togglePlay('audio3', this)">
+    <div class="song-info"><h3>3.Old Money</h3></div>
+    <div class="play-btn"><i class="fas fa-play"></i></div>
+    <audio id="audio3" src="songs/AP Dhillon - Old Money (Official Audio) - APDHILLON.mp3"></audio>
+  </div>
+</a>
+
+
+<a href="excuses.html">
+  <div class="song" onclick="togglePlay('audio4', this)">
+    <div class="song-info"><h3>4.Excuses</h3></div>
+    <div class="play-btn"><i class="fas fa-play"></i></div>
+    <audio id="audio4" src="songs/Excuses (Official Video)  AP Dhillon  Gurinder Gill  Intense - Intense.mp3"></audio>
+  </div>
+</a>
+
+<a href="bandana.html">
+  <div class="song" onclick="togglePlay('audio5', this)">
+    <div class="song-info"><h3>5.Bandana</h3></div>
+    <div class="play-btn"><i class="fas fa-play"></i></div>
+    <audio id="audio5" src="songs/Shubh - Bandana (Official Music Video) - SHUBH.mp3"></audio>
+  </div>
+</a>
+
+<a href="cheques.html">
+  <div class="song" onclick="togglePlay('audio6', this)">
+  <div class="song-info"><h3>6.Cheques</h3></div>
+  <div class="play-btn"><i class="fas fa-play"></i></div>
+  <audio id="audio6" src="songs/Shubh - Cheques (Official Music Video) - SHUBH.mp3"></audio>
+</div>
+</a>
+
+<a href="wavy.html">
+<div class="song" onclick="togglePlay('audio7', this)">
+  <div class="song-info"><h3>7.WAVY</h3></div>
+  <div class="play-btn"><i class="fas fa-play"></i></div>
+  <audio id="audio7" src="songs/WAVY (OFFICIAL VIDEO) KARAN AUJLA  LATEST PUNJABI SONGS 2024 - Karan Aujla (1).mp3"></audio>
+</div>
+</a>
+
+<a href="winningspeech.html">
+<div class="song" onclick="togglePlay('audio8', this)">
+  <div class="song-info"><h3>8.Winning Speech</h3></div>
+  <div class="play-btn"><i class="fas fa-play"></i></div>
+  <audio id="audio8" src="songs/Winning Speech Karan Aujla (Official Video) Karan Aujla New Song  New Punjabi Song 2024 - Town Media.mp3"></audio>
+</div>
+</a>
+
+<a href="withyou.html">
+<div class="song" onclick="togglePlay('audio9', this)">
+  <div class="song-info"><h3>9.With You</h3></div>
+  <div class="play-btn"><i class="fas fa-play"></i></div>
+  <audio id="audio9" src="songs/With You - AP Dhillon (Official Music Video) - APDHILLON.mp3"></audio>
+</div>
+</a>
+
+
+ 
+
+
+  <script>
+    const allAudios = document.querySelectorAll("audio");
+    const allButtons = document.querySelectorAll(".play-btn i");
+
+    function togglePlay(id, card) {
+      const audio = document.getElementById(id);
+      const icon = card.querySelector(".play-btn i");
+
+      // Pause all other audios
+      allAudios.forEach(a => {
+        if (a.id !== id) {
+          a.pause();
+          a.currentTime = 0;
+        }
+      });
+
+      // Reset all icons
+      allButtons.forEach(btn => {
+        btn.classList.remove("fa-pause");
+        btn.classList.add("fa-play");
+      });
+
+      // Toggle play/pause
+      if (audio.paused) {
+        audio.play();
+        icon.classList.remove("fa-play");
+        icon.classList.add("fa-pause");
+      } else {
+        audio.pause();
+        icon.classList.remove("fa-pause");
+        icon.classList.add("fa-play");
+      }
+    }
+  </script>
+
+</body>
+</html>

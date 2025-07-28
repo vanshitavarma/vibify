@@ -1,0 +1,101 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #121312;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      /* display: flex; */
+      /* justify-content: center; */
+      /* align-items: center; */
+      height: 100vh;
+    }
+    .upper{
+      height:100px;
+      width:100%;
+      background:linear-gradient(to bottom, #1ed760, #121312)
+    }
+    .login{
+       display: flex; 
+       justify-content: center; 
+       align-items: center; 
+    }
+
+    .login-container {
+      margin-top:60px;
+      background: #1c1c1c;
+      /* padding: 30px; */
+      border-radius: 10px;
+      height:500px;
+      width:500px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+ 
+    .login-container h2 {
+      margin-top:60px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .login-container input {
+    
+      margin-left: 40px;
+      margin-right: 40px;
+      width: 80%;
+      padding: 10px;
+      margin-top:40px;
+      border-radius: 5px;
+      border: none;
+      
+      
+    }
+
+    .login-container button {
+      width: 100px;
+      padding: 10px;
+      background-color: #1db954;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-left: 200px;
+      margin-top: 50px;
+
+    }
+
+    .login-container button:hover {
+      background-color: #1ed760;
+    }
+  </style>
+</head>
+<body>
+  <div class="upper"></div>
+  <div class="login">
+  <div class="login-container">
+    <h2>Log In</h2>
+    <form id="loginForm">
+      <input type="text" placeholder="Username" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevent form from refreshing the page
+      // Optionally: validate login here
+
+      // Redirect to homepage after login
+      window.location.href = "index.html"; // change if your homepage has another name
+    });
+  </script>
+</body>
+</html>
