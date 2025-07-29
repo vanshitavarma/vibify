@@ -1,56 +1,25 @@
-const playButtons = document.querySelectorAll('.play-btn');
+// DOMContentLoaded to ensure all elements are ready
+// Sidebar hamburger logic
 
-playButtons.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const audio = btn.parentElement.querySelector('audio');
+document.addEventListener("DOMContentLoaded", () => {
+  const sidebar = document.querySelector(".left-section");
+  const hamburger = document.querySelector(".hamburger");
 
-    // Pause other songs
-    document.querySelectorAll('audio').forEach((a) => {
-      if (a !== audio) a.pause();
-    });
+  hamburger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    sidebar.classList.add("active");
+  });
 
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
+  sidebar.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+  });
+
+  document.addEventListener("click", () => {
+    sidebar.classList.remove("active");
   });
 });
 
-const allAudios = document.querySelectorAll('audio');
-    const allButtons = document.querySelectorAll('.play-btn i');
-
-    function togglePlay(audioId, card) {
-      const audio = document.getElementById(audioId);
-      const icon = card.querySelector('.play-btn i');
-
-      // Pause all other audios
-      allAudios.forEach(a => {
-        if (a.id !== audioId) {
-          a.pause();
-          a.currentTime = 0;
-        }
-      });
-
-      // Reset all icons
-      allButtons.forEach(btn => {
-        btn.classList.remove('fa-pause');
-        btn.classList.add('fa-play');
-      });
-
-      if (audio.paused) {
-        audio.play();
-        icon.classList.remove('fa-play');
-        icon.classList.add('fa-pause');
-      } else {
-        audio.pause();
-        icon.classList.remove('fa-pause');
-        icon.classList.add('fa-play');
-      }
-    }
-
-
-
+// Search logic
 const searchInput = document.querySelector('.search-input');
 const searchResultsContainer = document.getElementById('search-results');
 
@@ -84,30 +53,22 @@ const hiddenSongs = [
   { title: 'Babaji Babaji', artist: 'Sapna Chaudhary', image: 'babaji.png', audio: "Sapna Choudhary  Baba Ji (Official Video)  Vishu Puthi   Haryanvi Song - Dreams Entertainment.mp3" }, 
   { title: 'Behti Hawa Sa Tha Wo', artist: 'Shaan', image: '3idoits.png', audio: "Behti Hawa Sa Tha Woh – 3 Idiots  Aamir Khan, Madhavan, Sharman J  Shaan & Shantanu M  Swanand K - Zee Music Company.mp3" }, 
   { title: 'Fein', artist: 'Travis Scott', image: 'fein.png', audio:"Travis Scott - FE!N ft. Playboi Carti - TravisScottVEVO.mp3" },
-  { title: 'Perfect', artist: 'Ed Sheeran', image: 'perfect.png', audio: "Ed Sheeran - Perfect (Official Music Video) - Ed Sheeran.mp3" },  
-  
-   // Add more hidden songs here
+  { title: 'Perfect', artist: 'Ed Sheeran', image: 'perfect.png', audio: "Ed Sheeran - Perfect (Official Music Video) - Ed Sheeran.mp3" },
 ];
 
-// Listen for typing in the search bar
 searchInput.addEventListener('input', () => {
   const query = searchInput.value.toLowerCase().trim();
+  searchResultsContainer.innerHTML = '';
 
-  // If empty, hide the search results
-  if (query === '') {
+  if (!query) {
     searchResultsContainer.style.display = 'none';
-    searchResultsContainer.innerHTML = '';
     return;
   }
 
-  // Filter songs based on the search query
   const results = hiddenSongs.filter(song =>
     song.title.toLowerCase().includes(query) ||
     song.artist.toLowerCase().includes(query)
   );
-
-  // Clear previous results
-  searchResultsContainer.innerHTML = '';
 
   if (results.length === 0) {
     searchResultsContainer.innerHTML = '<p style="color:white;">No results found.</p>';
@@ -115,27 +76,26 @@ searchInput.addEventListener('input', () => {
     results.forEach(song => {
       const card = document.createElement('div');
       card.classList.add('song-card');
-    card.innerHTML = `
-  <img src="${song.image}" alt="${song.title}">
-  <h4>${song.title}</h4>
-  <p>${song.artist}</p>
-  <form action="player.html" method="GET">
-    <input type="hidden" name="title" value="${song.title}">
-    <input type="hidden" name="artist" value="${song.artist}">
-    <input type="hidden" name="image" value="${song.image}">
-    <input type="hidden" name="audio" value="${song.audio}">
-    <button type="submit" class="play-btn">
-      <i class="fa-sharp fa-solid fa-play"></i>
-    </button>
-  </form>
-  <audio src="${song.audio}" preload="none" id="${song.title.replace(/\s+/g, '_')}"></audio>
-`;
+      card.innerHTML = `
+        <img src="${song.image}" alt="${song.title}">
+        <h4>${song.title}</h4>
+        <p>${song.artist}</p>
+        <form action="player.html" method="GET">
+          <input type="hidden" name="title" value="${song.title}">
+          <input type="hidden" name="artist" value="${song.artist}">
+          <input type="hidden" name="image" value="${song.image}">
+          <input type="hidden" name="audio" value="${encodeURIComponent(song.audio)}">
+          <button type="submit" class="play-btn">
+            <i class="fa-sharp fa-solid fa-play"></i>
+          </button>
+        </form>
+        <audio src="songs/${encodeURIComponent(song.audio)}" preload="none" id="${song.title.replace(/\s+/g, '_')}"></audio>
+      `;
 
-
-
-      // Add play functionality
-      card.querySelector('.play-btn').addEventListener('click', () => {
+      card.querySelector('.play-btn').addEventListener('click', (e) => {
+        e.preventDefault();
         const audio = card.querySelector('audio');
+
         document.querySelectorAll('audio').forEach(a => {
           if (a !== audio) {
             a.pause();
@@ -150,13 +110,15 @@ searchInput.addEventListener('input', () => {
           btn.classList.remove('fa-pause');
           btn.classList.add('fa-play');
         });
-       
+
         if (!isPlaying) {
           audio.play();
           icon.classList.remove('fa-play');
           icon.classList.add('fa-pause');
         } else {
           audio.pause();
+          icon.classList.remove('fa-pause');
+          icon.classList.add('fa-play');
         }
       });
 
@@ -164,29 +126,5 @@ searchInput.addEventListener('input', () => {
     });
   }
 
-  // Show the search results section
   searchResultsContainer.style.display = 'flex';
-});
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const sidebar = document.querySelector(".left-section");
-  const hamburger = document.querySelector(".hamburger");
-
-  // Open sidebar
-  hamburger.addEventListener("click", (e) => {
-    e.stopPropagation(); // Prevent click from reaching document
-    sidebar.classList.add("active");
-  });
-
-  // Close sidebar when clicking anywhere inside it
-  sidebar.addEventListener("click", () => {
-    sidebar.classList.remove("active");
-  });
-
-  // Also close sidebar if user clicks anywhere outside
-  document.addEventListener("click", () => {
-    sidebar.classList.remove("active");
-  });
 });
