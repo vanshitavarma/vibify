@@ -52,10 +52,11 @@ searchInput.addEventListener("input", function () {
 
       // Encode each value to ensure it works in a URL
       const url = new URL('player.html', window.location.origin);
-      url.searchParams.set('title', song.title);
-      url.searchParams.set('artist', song.artist);
-      url.searchParams.set('image', (song.image));
-      url.searchParams.set('audio', (song.audio));
+      url.searchParams.set('title', encodeURIComponent(song.title));
+      url.searchParams.set('artist', encodeURIComponent(song.artist));
+      url.searchParams.set('image', encodeURIComponent(song.image));
+      url.searchParams.set('audio', encodeURIComponent(song.audio));
+
 
       card.innerHTML = `
         <img src="${song.image}" alt="${song.title}">
