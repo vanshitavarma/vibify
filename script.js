@@ -1,7 +1,6 @@
 const searchInput = document.querySelector('.search-input');
 const searchResultsContainer = document.getElementById('search-results');
 
-// Dummy songs array (replace with your actual data)
 const songs = [
   { title: 'Sapphire', artist: 'Ed Sheeran', image: 'saphire.jpg', audio: 'Sapphire.mp3' },
   { title: 'Mast Magan', artist: 'Arijit Singh', image: '2states.png', audio: 'Mast Magan FULL Video Song  2 States  Arijit Singh  Arjun Kapoor, Alia Bhatt - T-Series.mp3' },
@@ -33,7 +32,6 @@ const songs = [
   { title: 'Behti Hawa Sa Tha Wo', artist: 'Shaan', image: '3idoits.png', audio: "Behti Hawa Sa Tha Woh – 3 Idiots  Aamir Khan, Madhavan, Sharman J  Shaan & Shantanu M  Swanand K - Zee Music Company.mp3" }, 
   { title: 'Fein', artist: 'Travis Scott', image: 'fein.png', audio:"Travis Scott - FE!N ft. Playboi Carti - TravisScottVEVO.mp3" },
   { title: 'Perfect', artist: 'Ed Sheeran', image: 'perfect.png', audio: "Ed Sheeran - Perfect (Official Music Video) - Ed Sheeran.mp3" },
-
 ];
 
 searchInput.addEventListener("input", function () {
@@ -52,28 +50,29 @@ searchInput.addEventListener("input", function () {
       const card = document.createElement('div');
       card.classList.add('song-card');
 
-      // Build query params safely
-      const queryParams = new URLSearchParams({
-        title: song.title,
-        artist: song.artist,
-        image:  encodeURIComponent(song.image),
-        audio: encodeURIComponent(song.audio)
-
-      });
+      // Encode each value to ensure it works in a URL
+      const url = new URL('player.html', window.location.origin);
+      url.searchParams.set('title', song.title);
+      url.searchParams.set('artist', song.artist);
+      url.searchParams.set('image', encodeURIComponent(song.image));
+      url.searchParams.set('audio', encodeURIComponent(song.audio));
 
       card.innerHTML = `
         <img src="${song.image}" alt="${song.title}">
         <h4>${song.title}</h4>
         <p>${song.artist}</p>
-        <a href="player.html?${queryParams.toString()}" class="play-btn">
+        <button class="play-btn">
           <i class="fa-sharp fa-solid fa-play"></i>
-        </a>
+        </button>
       `;
+
+      card.addEventListener('click', () => {
+        window.location.href = url.toString();
+      });
 
       searchResultsContainer.appendChild(card);
     });
+
+    searchResultsContainer.style.display = 'flex';
   }
-
-  searchResultsContainer.style.display = 'flex';
 });
-
