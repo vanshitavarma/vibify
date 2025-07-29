@@ -97,16 +97,16 @@
     const params = new URLSearchParams(window.location.search);
     const title = params.get('title');
     const artist = params.get('artist');
-    const image = params.get('image');
-    const audioFile = params.get('audio');
+    const image = decodeURIComponent(params.get('image'));
+    const audioFile = decodeURIComponent(params.get('audio'));
+
 
     // Set content dynamically
     document.getElementById('song-title').textContent = title;
     document.getElementById('artist').textContent = artist;
     document.getElementById('album-art').src = image;
     document.getElementById('album-art').alt = title;
-    document.getElementById('audio').src = decodeURIComponent(audioFile);
-
+    document.getElementById('audio').src = audioFile;
 
     const audio = document.getElementById('audio');
     const playBtn = document.getElementById('play');
