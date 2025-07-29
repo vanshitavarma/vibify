@@ -1,29 +1,8 @@
-// DOMContentLoaded to ensure all elements are ready
-// Sidebar hamburger logic
-
-document.addEventListener("DOMContentLoaded", () => {
-  const sidebar = document.querySelector(".left-section");
-  const hamburger = document.querySelector(".hamburger");
-
-  hamburger.addEventListener("click", (e) => {
-    e.stopPropagation();
-    sidebar.classList.add("active");
-  });
-
-  sidebar.addEventListener("click", () => {
-    sidebar.classList.remove("active");
-  });
-
-  document.addEventListener("click", () => {
-    sidebar.classList.remove("active");
-  });
-});
-
-// Search logic
 const searchInput = document.querySelector('.search-input');
 const searchResultsContainer = document.getElementById('search-results');
 
-const hiddenSongs = [
+// Dummy songs array (replace with your actual data)
+const songs = [
   { title: 'Sapphire', artist: 'Ed Sheeran', image: 'saphire.jpg', audio: 'Sapphire.mp3' },
   { title: 'Mast Magan', artist: 'Arijit Singh', image: '2states.png', audio: 'Mast Magan FULL Video Song  2 States  Arijit Singh  Arjun Kapoor, Alia Bhatt - T-Series.mp3' },
   { title: 'Die with a smile', artist: 'Bruno Mars', image: 'diewithasmile.png', audio: 'Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video) - LadyGagaVEVO.mp3' },
@@ -54,73 +33,41 @@ const hiddenSongs = [
   { title: 'Behti Hawa Sa Tha Wo', artist: 'Shaan', image: '3idoits.png', audio: "Behti Hawa Sa Tha Woh – 3 Idiots  Aamir Khan, Madhavan, Sharman J  Shaan & Shantanu M  Swanand K - Zee Music Company.mp3" }, 
   { title: 'Fein', artist: 'Travis Scott', image: 'fein.png', audio:"Travis Scott - FE!N ft. Playboi Carti - TravisScottVEVO.mp3" },
   { title: 'Perfect', artist: 'Ed Sheeran', image: 'perfect.png', audio: "Ed Sheeran - Perfect (Official Music Video) - Ed Sheeran.mp3" },
+
 ];
 
-searchInput.addEventListener('input', () => {
-  const query = searchInput.value.toLowerCase().trim();
-  searchResultsContainer.innerHTML = '';
-
-  if (!query) {
-    searchResultsContainer.style.display = 'none';
-    return;
-  }
-
-  const results = hiddenSongs.filter(song =>
+searchInput.addEventListener("input", function () {
+  const query = this.value.toLowerCase();
+  const results = songs.filter(song =>
     song.title.toLowerCase().includes(query) ||
     song.artist.toLowerCase().includes(query)
   );
 
+  searchResultsContainer.innerHTML = "";
+
   if (results.length === 0) {
-    searchResultsContainer.innerHTML = '<p style="color:white;">No results found.</p>';
+    searchResultsContainer.innerHTML = "<p>No songs found.</p>";
   } else {
     results.forEach(song => {
       const card = document.createElement('div');
       card.classList.add('song-card');
+
+      // Build query params safely
+      const queryParams = new URLSearchParams({
+        title: song.title,
+        artist: song.artist,
+        image: song.image,
+        audio: song.audio
+      });
+
       card.innerHTML = `
         <img src="${song.image}" alt="${song.title}">
         <h4>${song.title}</h4>
         <p>${song.artist}</p>
-        <form action="player.html" method="GET">
-          <input type="hidden" name="title" value="${song.title}">
-          <input type="hidden" name="artist" value="${song.artist}">
-          <input type="hidden" name="image" value="${song.image}">
-          <input type="hidden" name="audio" value="${encodeURIComponent(song.audio)}">
-          <button type="submit" class="play-btn">
-            <i class="fa-sharp fa-solid fa-play"></i>
-          </button>
-        </form>
-        <audio src="songs/${encodeURIComponent(song.audio)}" preload="none" id="${song.title.replace(/\s+/g, '_')}"></audio>
+        <a href="player.html?${queryParams.toString()}" class="play-btn">
+          <i class="fa-sharp fa-solid fa-play"></i>
+        </a>
       `;
-
-      card.querySelector('.play-btn').addEventListener('click', (e) => {
-        e.preventDefault();
-        const audio = card.querySelector('audio');
-
-        document.querySelectorAll('audio').forEach(a => {
-          if (a !== audio) {
-            a.pause();
-            a.currentTime = 0;
-          }
-        });
-
-        const icon = card.querySelector('.play-btn i');
-        const isPlaying = !audio.paused;
-
-        document.querySelectorAll('.play-btn i').forEach(btn => {
-          btn.classList.remove('fa-pause');
-          btn.classList.add('fa-play');
-        });
-
-        if (!isPlaying) {
-          audio.play();
-          icon.classList.remove('fa-play');
-          icon.classList.add('fa-pause');
-        } else {
-          audio.pause();
-          icon.classList.remove('fa-pause');
-          icon.classList.add('fa-play');
-        }
-      });
 
       searchResultsContainer.appendChild(card);
     });
@@ -128,3 +75,4 @@ searchInput.addEventListener('input', () => {
 
   searchResultsContainer.style.display = 'flex';
 });
+
