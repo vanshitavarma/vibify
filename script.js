@@ -54,8 +54,8 @@ searchInput.addEventListener("input", function () {
       const url = new URL('player.html', window.location.origin);
       url.searchParams.set('title', song.title);
       url.searchParams.set('artist', song.artist);
-      url.searchParams.set('image', encodeURIComponent(song.image));
-      url.searchParams.set('audio', encodeURIComponent(song.audio));
+      url.searchParams.set('image', (song.image));
+      url.searchParams.set('audio', (song.audio));
 
       card.innerHTML = `
         <img src="${song.image}" alt="${song.title}">
