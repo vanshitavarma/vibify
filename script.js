@@ -3,7 +3,7 @@ const searchResultsContainer = document.getElementById('search-results');
 
 // Dummy songs array (replace with your actual data)
 const songs = [
-{ title: 'Sapphire', artist: 'Ed Sheeran', image: 'saphire.jpg', audio: 'Sapphire.mp3' },
+  { title: 'Sapphire', artist: 'Ed Sheeran', image: 'saphire.jpg', audio: 'Sapphire.mp3' },
   { title: 'Mast Magan', artist: 'Arijit Singh', image: '2states.png', audio: 'Mast Magan FULL Video Song  2 States  Arijit Singh  Arjun Kapoor, Alia Bhatt - T-Series.mp3' },
   { title: 'Die with a smile', artist: 'Bruno Mars', image: 'diewithasmile.png', audio: 'Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video) - LadyGagaVEVO.mp3' },
   { title: 'Ik vaariya', artist: 'Arijit Singh', image: 'raabta.png', audio: 'Ik Vaari Aa Full Song  Raabta  Sushant Singh Rajput & Kriti Sanon  Pritam Arijit Singh Amitabh B - T-Series.mp3' },
@@ -56,8 +56,9 @@ searchInput.addEventListener("input", function () {
       const queryParams = new URLSearchParams({
         title: song.title,
         artist: song.artist,
-        image: song.image,
-        audio: song.audio
+        image:  encodeURIComponent(song.image),
+        audio: encodeURIComponent(song.audio)
+
       });
 
       card.innerHTML = `
