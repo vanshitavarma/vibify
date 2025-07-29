@@ -105,7 +105,8 @@
     document.getElementById('artist').textContent = artist;
     document.getElementById('album-art').src = image;
     document.getElementById('album-art').alt = title;
-    document.getElementById('audio').src = audioFile;
+    document.getElementById('audio').src = decodeURIComponent(audioFile);
+
 
     const audio = document.getElementById('audio');
     const playBtn = document.getElementById('play');
